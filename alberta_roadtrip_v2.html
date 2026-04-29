@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alberta Road Trip · 29/04–03/05/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#FAFAF7;--white:#FFFFFF;--gray50:#F7F7F5;--gray100:#EEEDE9;--gray200:#DDDBD4;--gray300:#C4C1B8;--gray500:#8A8780;--gray700:#4A4840;--gray900:#1C1B18;
+  --blue:#1A6FDB;--blue-soft:#EBF3FF;--blue-mid:#D0E5FF;
+  --green:#1A7F4B;--green-soft:#E8F7EE;--green-mid:#C5EDD6;
+  --amber:#C47A1A;--amber-soft:#FEF5E7;--amber-mid:#FDE3A3;
+  --red:#C42B2B;--red-soft:#FEECEC;
+  --purple:#6B3FBF;--purple-soft:#F0EAFB;
+  --pink:#C4346B;--pink-soft:#FCEEF4;
+  --teal:#1A8A8A;--teal-soft:#E6F5F5;
+  --orange:#D4570E;--orange-soft:#FEF0E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--gray900);font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* ── HERO ── */
+.hero{background:var(--gray900);color:white;padding:48px 20px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 0% 100%,rgba(26,111,219,0.25),transparent 60%),radial-gradient(ellipse 80% 60% at 100% 0%,rgba(26,127,75,0.15),transparent 60%)}
+.hero-inner{position:relative;z-index:1;max-width:600px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:20px}
+.hero-badge::before{content:'';width:20px;height:1px;background:rgba(255,255,255,0.3)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(40px,10vw,72px);font-weight:900;line-height:.95;letter-spacing:-1.5px;margin-bottom:16px}
+.hero h1 .accent{color:#60B0FF;display:block}
+.hero-desc{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:24px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.15)}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--gray100);overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav-inner{display:flex;padding:0 16px;min-width:max-content}
+.nav-btn{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--gray500);padding:14px 14px;border:none;background:none;cursor:pointer;border-bottom:2.5px solid transparent;white-space:nowrap;transition:all .15s}
+.nav-btn:hover{color:var(--gray900)}
+.nav-btn.active{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ── SECTIONS ── */
+.section{display:none}.section.active{display:block}
+.page{max-width:600px;margin:0 auto;padding:24px 20px 48px}
+
+/* ── SECTION HEADER ── */
+.page-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.page-title{font-family:'Fraunces',serif;font-size:clamp(28px,7vw,44px);font-weight:900;line-height:1.05;letter-spacing:-.5px;color:var(--gray900);margin-bottom:28px}
+
+/* ── OVERVIEW CARDS ── */
+.day-cards{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.day-card{background:var(--white);border:1.5px solid var(--gray100);border-radius:16px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;cursor:pointer;transition:all .15s;text-decoration:none;color:inherit}
+.day-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(26,111,219,0.1);transform:translateY(-1px)}
+.day-num{font-family:'Fraunces',serif;font-size:32px;font-weight:900;line-height:1;color:var(--gray200);flex-shrink:0;width:40px;text-align:center;transition:color .15s}
+.day-card:hover .day-num{color:var(--blue)}
+.day-info{flex:1;min-width:0}
+.day-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray500);margin-bottom:4px;letter-spacing:.05em}
+.day-route{font-size:13px;font-weight:600;color:var(--gray900);line-height:1.4;margin-bottom:5px}
+.day-sleep{font-size:12px;color:var(--gray500);display:flex;align-items:center;gap:4px}
+.day-arrow{color:var(--gray300);font-size:18px;flex-shrink:0;margin-top:6px;transition:all .15s}
+.day-card:hover .day-arrow{color:var(--blue);transform:translateX(2px)}
+
+/* ── BUDGET TABLE ── */
+.card{background:var(--white);border:1.5px solid var(--gray100);border-radius:16px;overflow:hidden;margin-bottom:20px}
+.card-header{padding:14px 18px;border-bottom:1.5px solid var(--gray100);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray500);font-weight:500}
+.budget-row{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--gray100)}
+.budget-row:last-child{border-bottom:none}
+.budget-label{font-size:14px;color:var(--gray700)}
+.budget-val{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--gray900)}
+.budget-row.total{background:var(--gray900)}
+.budget-row.total .budget-label{color:rgba(255,255,255,0.8);font-weight:600}
+.budget-row.total .budget-val{color:#60B0FF;font-size:14px}
+
+/* ── ALERT ── */
+.alert{border-radius:14px;padding:16px 18px;margin-bottom:16px}
+.alert-warn{background:var(--amber-soft);border:1.5px solid var(--amber-mid)}
+.alert-title{font-size:14px;font-weight:700;color:var(--amber);margin-bottom:10px}
+.alert ul{list-style:none}
+.alert li{font-size:14px;color:var(--gray700);line-height:1.8;padding-left:16px;position:relative}
+.alert li::before{content:'→';position:absolute;left:0;color:var(--amber);font-weight:700}
+
+/* ── DAY DETAIL HEADER ── */
+.day-header-card{background:var(--gray900);color:white;border-radius:20px;padding:24px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.day-header-card::before{content:'';position:absolute;inset:0;opacity:.4}
+.dhc-n1::before{background:radial-gradient(ellipse at 100% 100%,var(--blue),transparent 70%)}
+.dhc-n2::before{background:radial-gradient(ellipse at 100% 100%,var(--green),transparent 70%)}
+.dhc-n3::before{background:radial-gradient(ellipse at 100% 100%,var(--teal),transparent 70%)}
+.dhc-n4::before{background:radial-gradient(ellipse at 100% 100%,var(--orange),transparent 70%)}
+.dhc-n5::before{background:radial-gradient(ellipse at 100% 100%,var(--pink),transparent 70%)}
+.dhc-inner{position:relative;z-index:1}
+.dhc-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:8px}
+.dhc-title{font-family:'Fraunces',serif;font-size:clamp(22px,5vw,32px);font-weight:900;line-height:1.1;margin-bottom:8px}
+.dhc-sub{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;margin-bottom:14px}
+.dhc-pills{display:flex;flex-wrap:wrap;gap:6px}
+.dhc-pill{font-family:'JetBrains Mono',monospace;font-size:10px;padding:4px 10px;border-radius:100px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.2)}
+
+/* ── SECTION BAR ── */
+.sbar{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray500);font-weight:500;padding:8px 0 6px;margin:20px 0 2px;border-bottom:1.5px solid var(--gray100);display:flex;align-items:center;gap:8px}
+.sbar::before{content:'';flex:none;width:3px;height:12px;background:var(--blue);border-radius:2px}
+
+/* ── TIMELINE ── */
+.stop{display:flex;gap:0;position:relative}
+.stop-tc{width:52px;flex-shrink:0;padding-top:18px;text-align:right;padding-right:10px}
+.stop-time{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--gray500);line-height:1}
+.stop-mc{display:flex;flex-direction:column;align-items:center;width:22px;flex-shrink:0}
+.stop-dot{width:11px;height:11px;border-radius:50%;border:2.5px solid var(--cream);flex-shrink:0;margin-top:18px;box-shadow:0 0 0 1.5px var(--gray200)}
+.stop-line{width:1.5px;flex:1;min-height:10px;margin-top:3px;background:var(--gray200)}
+.stop:last-child .stop-line{display:none}
+.stop-body{flex:1;padding:14px 0 20px 12px;border-bottom:1.5px solid var(--gray100)}
+.stop:last-child .stop-body{border-bottom:none}
+.stop-name{font-size:15px;font-weight:700;color:var(--gray900);line-height:1.3;margin-bottom:4px}
+.stop-note{font-size:13px;color:var(--gray700);line-height:1.6;margin-bottom:8px}
+.stop-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+
+/* TAGS */
+.tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:100px;font-family:'JetBrains Mono',monospace;letter-spacing:.03em;white-space:nowrap}
+.t-photo{background:var(--blue-soft);color:var(--blue)}
+.t-nat{background:var(--green-soft);color:var(--green)}
+.t-kid{background:#E8F8F0;color:#1A7A50}
+.t-eat{background:var(--amber-soft);color:var(--amber)}
+.t-gas{background:#FFF8E6;color:#B06800}
+.t-slp{background:var(--purple-soft);color:var(--purple)}
+.t-pray{background:var(--orange-soft);color:var(--orange)}
+.t-flwr{background:var(--pink-soft);color:var(--pink)}
+.t-shop{background:var(--teal-soft);color:var(--teal)}
+.t-free{background:var(--green-soft);color:#0E6B35}
+.t-warn{background:var(--red-soft);color:var(--red)}
+.t-sun{background:#FFF9E6;color:#9A6700}
+.t-opt{background:var(--gray50);color:var(--gray500)}
+
+/* MAP BUTTON */
+.map-btn{display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--blue);padding:6px 12px;border:1.5px solid var(--blue-mid);border-radius:10px;text-decoration:none;background:var(--blue-soft);transition:all .15s}
+.map-btn:hover{background:var(--blue-mid)}
+.map-btn:active{transform:scale(.97)}
+
+/* INFO BOXES */
+.info{border-radius:12px;padding:14px 16px;margin:10px 0;font-size:13px;line-height:1.65;border-left:3.5px solid}
+.i-gas{background:var(--amber-soft);border-color:var(--amber);color:var(--gray700)}
+.i-warn{background:var(--red-soft);border-color:var(--red);color:var(--gray700)}
+.i-pray{background:var(--orange-soft);border-color:var(--orange);color:var(--gray700)}
+.i-tip{background:var(--blue-soft);border-color:var(--blue);color:var(--gray700)}
+.i-green{background:var(--green-soft);border-color:var(--green);color:var(--gray700)}
+.info strong{display:block;font-size:13px;font-weight:700;margin-bottom:4px;color:var(--gray900)}
+
+/* DAY SUMMARY */
+.day-sum{display:flex;flex-wrap:wrap;gap:10px;padding:14px 0 4px;border-top:1.5px solid var(--gray100);margin-top:6px}
+.sum-item{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray500)}
+.sum-item b{color:var(--gray900);font-weight:700}
+
+/* ── GAS SECTION ── */
+.gas-card{background:var(--white);border:1.5px solid var(--gray100);border-radius:16px;overflow:hidden;margin-bottom:16px}
+.gas-row{display:flex;gap:14px;padding:16px 18px;border-bottom:1.5px solid var(--gray100);align-items:flex-start}
+.gas-row:last-child{border-bottom:none}
+.gas-num{font-family:'Fraunces',serif;font-size:28px;font-weight:900;color:var(--gray200);flex-shrink:0;width:32px;line-height:1;margin-top:2px}
+.gas-body{flex:1}
+.gas-name{font-size:14px;font-weight:700;color:var(--gray900);margin-bottom:3px}
+.gas-note{font-size:13px;color:var(--gray700);line-height:1.5;margin-bottom:6px}
+.gas-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;padding:3px 10px;border-radius:8px;background:var(--amber-soft);border:1.5px solid var(--amber-mid);color:var(--amber)}
+
+/* ── CHECKLIST ── */
+.check-group{margin-bottom:24px}
+.check-group-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;padding-bottom:8px;border-bottom:1.5px solid var(--gray100);font-weight:500}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1.5px solid var(--gray100);cursor:pointer;-webkit-user-select:none;user-select:none;transition:opacity .15s}
+.check-item:last-child{border-bottom:none}
+.check-item.done{opacity:.45}
+.check-box{width:22px;height:22px;border-radius:7px;border:2px solid var(--gray200);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s;background:white}
+.check-item.done .check-box{background:var(--green);border-color:var(--green)}
+.check-box svg{display:none;flex-shrink:0}
+.check-item.done .check-box svg{display:block}
+.check-text{font-size:14px;font-weight:600;color:var(--gray900);line-height:1.4}
+.check-sub{font-size:12px;color:var(--gray500);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.02em}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:28px 20px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray300);border-top:1.5px solid var(--gray100)}
+
+/* ── MOBILE TWEAKS ── */
+@media(max-width:380px){
+  .hero h1{font-size:36px}
+  .stop-tc{width:44px}
+  .stop-time{font-size:10px}
+  .stop-name{font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Road Trip · Alberta 🇨🇦</div>
+    <h1>Alberta<span class="accent">29/04–03/05</span></h1>
+    <div class="hero-desc">Calgary → Banff → Jasper → Hinton → Edmonton → Calgary<br>Gia đình 3 người · Toyota Corolla 2015 · 5 ngày</div>
+    <div class="hero-chips">
+      <span class="chip">~1,250km</span>
+      <span class="chip">Banff NP</span>
+      <span class="chip">Jasper NP</span>
+      <span class="chip">Icefields Pkwy</span>
+      <span class="chip">Trúc Lâm</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="show('overview')">Tổng quan</button>
+    <button class="nav-btn" onclick="show('d1')">Ngày 1</button>
+    <button class="nav-btn" onclick="show('d2')">Ngày 2</button>
+    <button class="nav-btn" onclick="show('d3')">Ngày 3</button>
+    <button class="nav-btn" onclick="show('d4')">Ngày 4</button>
+    <button class="nav-btn" onclick="show('d5')">Ngày 5</button>
+    <button class="nav-btn" onclick="show('gas')">⛽ Xăng</button>
+    <button class="nav-btn" onclick="show('checklist')">✓ Check</button>
+  </div>
+</nav>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<section id="overview" class="section active">
+<div class="page">
+  <div class="page-eyebrow">Hành trình</div>
+  <div class="page-title">5 ngày xuyên<br>Canadian Rockies</div>
+
+  <div class="day-cards">
+    <div class="day-card" onclick="show('d1')">
+      <div class="day-num">1</div>
+      <div class="day-info">
+        <div class="day-date">T.Tư · 29/04</div>
+        <div class="day-route">Calgary → Banff town → Two Jack + Minnewanka → Grassi Lakes</div>
+        <div class="day-sleep">🛏 Canmore Downtown Hostel · Check-in 16:00</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </div>
+    <div class="day-card" onclick="show('d2')">
+      <div class="day-num">2</div>
+      <div class="day-info">
+        <div class="day-date">T.Năm · 30/04</div>
+        <div class="day-route">Canmore → Lake Louise → Icefields Parkway → Peyto → Columbia → Jasper</div>
+        <div class="day-sleep">🛏 Tonquin Inn Jasper · Check-in 16:00</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </div>
+    <div class="day-card" onclick="show('d3')">
+      <div class="day-num">3</div>
+      <div class="day-info">
+        <div class="day-date">T.Sáu · 01/05</div>
+        <div class="day-route">Maligne Canyon → Maligne Lake → Pyramid → Lac Beauvert → Annette → Pocahontas → Hinton</div>
+        <div class="day-sleep">🛏 Timberland Hotel Hinton · Check-in 16:00</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </div>
+    <div class="day-card" onclick="show('d4')">
+      <div class="day-num">4</div>
+      <div class="day-info">
+        <div class="day-date">T.Bảy · 02/05</div>
+        <div class="day-route">Hinton → Edmonton → Trúc Lâm → Museum → Hustler Plaza → WEM</div>
+        <div class="day-sleep">🛏 Homestay 118 Ave NW Edmonton · Check-in 15:30</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </div>
+    <div class="day-card" onclick="show('d5')">
+      <div class="day-num">5</div>
+      <div class="day-info">
+        <div class="day-date">C.Nhật · 03/05</div>
+        <div class="day-route">Costco (xăng) → Trúc Lâm 9:30 → Lễ 10:00 → Trưa chay → CrossIron → Calgary</div>
+        <div class="day-sleep">🏠 Về nhà trước 16:00 ✓</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">💰 Chi phí ước tính (CAD)</div>
+    <div class="budget-row"><span class="budget-label">Canmore Downtown Hostel (1 đêm)</span><span class="budget-val">~$75–100</span></div>
+    <div class="budget-row"><span class="budget-label">Tonquin Inn Jasper (2 đêm)</span><span class="budget-val">~$240–300</span></div>
+    <div class="budget-row"><span class="budget-label">Timberland Hotel Hinton (1 đêm)</span><span class="budget-val">~$80–110</span></div>
+    <div class="budget-row"><span class="budget-label">Homestay Edmonton (1 đêm)</span><span class="budget-val">~$60–90</span></div>
+    <div class="budget-row"><span class="budget-label">Xăng (~120L tổng)</span><span class="budget-val">~$195–210</span></div>
+    <div class="budget-row"><span class="budget-label">Ăn uống (5 ngày)</span><span class="budget-val">~$200–280</span></div>
+    <div class="budget-row"><span class="budget-label">Parks Canada Pass</span><span class="budget-val">~$60</span></div>
+    <div class="budget-row"><span class="budget-label">Kananaskis Pass</span><span class="budget-val">$15</span></div>
+    <div class="budget-row"><span class="budget-label">Royal Alberta Museum</span><span class="budget-val">~$38</span></div>
+    <div class="budget-row"><span class="budget-label">Galaxyland WEM (bé)</span><span class="budget-val">~$20–30</span></div>
+    <div class="budget-row"><span class="budget-label">Linh tinh</span><span class="budget-val">~$100</span></div>
+    <div class="budget-row total"><span class="budget-label">Tổng ước tính</span><span class="budget-val">~$1,083–1,333</span></div>
+  </div>
+
+  <div class="alert alert-warn">
+    <div class="alert-title">⚠ Việc cần làm TRƯỚC KHI ĐI</div>
+    <ul>
+      <li>Đặt Canmore Downtown Hostel (1 đêm 29/04) — check-in 16:00, out 11:00</li>
+      <li>Đặt Tonquin Inn Jasper (2 đêm 30/04–02/05) — check-in 16:00, out 11:00</li>
+      <li>Đặt Timberland Hotel Hinton (1 đêm 01/05) — check-in 16:00, out 12:00</li>
+      <li>Đặt Homestay 118 Ave NW Edmonton (1 đêm 02/05) — check-in 15:30, out 10:30</li>
+      <li>Mua Parks Canada Discovery Pass — parks.canada.ca</li>
+      <li>Mua Kananaskis Conservation Pass $15 — albertaparks.ca (đăng ký biển số xe)</li>
+      <li>Gọi Tu Viện Trúc Lâm (780) 471-1093 — xác nhận lịch bát quan trai 02/05</li>
+      <li>Tải offline Google Maps toàn tuyến — không sóng trên Icefields Parkway!</li>
+      <li>Cài GasBuddy app — check giá xăng Canmore sáng 30/04</li>
+      <li>Đổ đầy xăng Costco Calgary trước ngày 29/04</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ NGÀY 1 ═══════════ -->
+<section id="d1" class="section">
+<div class="page">
+  <div class="day-header-card dhc-n1">
+    <div class="dhc-inner">
+      <div class="dhc-label">Ngày 1 · Thứ Tư 29/04</div>
+      <div class="dhc-title">Calgary → Banff → Two Jack · Minnewanka → Grassi Lakes</div>
+      <div class="dhc-sub">Khởi đầu hành trình — sáng Banff town thong thả, trưa ven hồ, chiều hồ xanh ngọc Grassi Lakes</div>
+      <div class="dhc-pills">
+        <span class="dhc-pill">07:00 → 20:30</span>
+        <span class="dhc-pill">~130km</span>
+        <span class="dhc-pill">K-Pass $15</span>
+        <span class="dhc-pill">Out 11:00 · In 16:00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sbar">Sáng sớm — vào Banff</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">07:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A6FDB"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Xuất phát từ nhà</div>
+      <div class="stop-note">110 Springborough SW, Calgary. Xăng Costco đầy + đồ ăn chuẩn bị sẵn. Lái Hwy 1 West thẳng vào Banff</div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/110+Springborough+Blvd+SW+Calgary/Vermilion+Lakes+Drive+Banff+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">08:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">📸 Vermilion Lakes</div>
+      <div class="stop-note">Dừng 15 phút. Đỗ ven đường miễn phí. Núi Rundle phản chiếu hồ — ánh sáng sáng sớm đẹp nhất</div>
+      <div class="stop-tags"><span class="tag t-photo">Chụp ảnh</span><span class="tag t-free">Miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/110+Springborough+Blvd+SW+Calgary/Vermilion+Lakes+Drive+Banff+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">08:50</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Đỗ Train Station Lot → Banff town</div>
+      <div class="stop-note">500 chỗ, miễn phí 9 tiếng. Đi bộ 8 phút vào Banff Avenue</div>
+      <div class="stop-tags"><span class="tag t-free">Đỗ xe miễn phí 9h</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Vermilion+Lakes+Drive+Banff/Banff+Train+Station+Parking+Lot" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Sáng — Banff town</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">09:05</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">☕ Cà phê sáng — Good Earth Coffeehouse</div>
+      <div class="stop-note">229 Bear St · Ngồi nhìn Banff Ave + Cascade Mountain buổi sáng yên tĩnh</div>
+      <div class="stop-tags"><span class="tag t-eat">Cà phê sáng</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Banff+Train+Station+Parking+Lot/Good+Earth+Coffeehouse+229+Bear+St+Banff" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">09:35</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🛍️ Dạo Banff Avenue thong thả</div>
+      <div class="stop-note">BeaverTail (đặc sản Canada — bé thích!), The Fudgery, shop kỷ niệm. Nhìn thẳng Cascade Mountain cuối đường. Stroller thoải mái. ~1 giờ</div>
+      <div class="stop-tags"><span class="tag t-photo">Cascade Mountain view</span><span class="tag t-kid">BeaverTail!</span><span class="tag t-free">Miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Good+Earth+Coffeehouse+Banff/Banff+Avenue+Banff+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">10:40</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">📸 Surprise Corner + Bow Falls</div>
+      <div class="stop-note">Đi bộ qua cầu Bow River. Surprise Corner: view Fairmont Banff Springs + núi tuyết — must-take shot! Bow Falls ngay bên, bé thích tiếng nước. ~30 phút</div>
+      <div class="stop-tags"><span class="tag t-photo">Must-take shot!</span><span class="tag t-kid">Bé thích</span><span class="tag t-free">Miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Banff+Avenue+Banff/Surprise+Corner+Viewpoint+Banff+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Trưa — ăn Banff + hai hồ</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">11:15</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🍽️ Ăn trưa tại Banff</div>
+      <div class="stop-note">Picnic tại Central Park Banff — bãi cỏ rộng cho bé chạy. Hoặc Nourish Bistro / Tooloulou's ~$15–20/người</div>
+      <div class="stop-tags"><span class="tag t-eat">Ăn trưa</span><span class="tag t-kid">Bé chạy Central Park</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Surprise+Corner+Banff/Banff+Central+Park+Banff+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">12:15</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">📸 Two Jack Lake</div>
+      <div class="stop-note">~13km từ Banff, 15 phút. Đỗ miễn phí. Đường ven hồ phẳng stroller OK. View núi Rundle phản chiếu. ~25 phút</div>
+      <div class="stop-tags"><span class="tag t-photo">Chụp ảnh</span><span class="tag t-nat">Stroller OK</span><span class="tag t-free">Miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Banff+Central+Park/Two+Jack+Lake+Banff+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">12:45</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🦌 Lake Minnewanka</div>
+      <div class="stop-note">3km từ Two Jack. Hồ lớn nhất Banff NP. Đường ven hồ phẳng stroller OK. Hay thấy bighorn sheep. ~30 phút</div>
+      <div class="stop-tags"><span class="tag t-nat">Hồ lớn nhất Banff</span><span class="tag t-kid">Bighorn sheep!</span><span class="tag t-free">Miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Two+Jack+Lake+Banff/Lake+Minnewanka+Banff+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">13:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Lái về Canmore — bé ngủ trưa trong xe</div>
+      <div class="stop-note">~25 phút. Bé ngủ thoải mái trên đường</div>
+      <div class="stop-tags"><span class="tag t-eat">Nap time bé</span></div>
+    </div>
+  </div>
+
+  <div class="sbar">Chiều — Grassi Lakes + Nordic Centre (K-Pass $15)</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">14:05</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Grassi Lakes — Upper Easy Trail</div>
+      <div class="stop-note">Đỗ tại Nordic Centre. Gravel rộng, dốc nhẹ, stroller bánh lớn OK. 2 hồ xanh ngọc giữa vách đá. ~1.5 giờ khứ hồi. K-Pass $15 — mua tại albertaparks.ca trước</div>
+      <div class="stop-tags"><span class="tag t-nat">2 hồ xanh ngọc</span><span class="tag t-photo">Chụp ảnh</span><span class="tag t-warn">K-Pass $15</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Lake+Minnewanka+Banff/Grassi+Lakes+Trailhead+Canmore+Nordic+Centre" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">15:45</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Nordic Centre — paved loop <span style="color:var(--gray500);font-weight:400;font-size:12px">(optional)</span></div>
+      <div class="stop-note">Cùng bãi đỗ, cùng K-Pass — không tốn thêm. View Three Sisters + Rundle. ~30–40 phút nếu còn sức</div>
+      <div class="stop-tags"><span class="tag t-opt">Optional</span><span class="tag t-free">Tận dụng K-Pass</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Grassi+Lakes+Trailhead/Canmore+Nordic+Centre+Day+Lodge" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">16:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#6B3FBF"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">✅ Check-in Canmore Downtown Hostel</div>
+      <div class="stop-note">Check-in từ 16:00 · Checkout 11:00 · Parking miễn phí</div>
+      <div class="stop-tags"><span class="tag t-slp">Nghỉ đêm 1</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Canmore+Nordic+Centre/Canmore+Downtown+Hostel+Canmore+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Tối — dạo Canmore</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">18:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🍽️ Ăn tối + Policeman's Creek Boardwalk</div>
+      <div class="stop-note">Ăn tối Canmore Main Street (rẻ hơn Banff 20–30%). Sau đó dạo Policeman's Creek — 2 phút đi bộ, paved phẳng stroller OK, hay thấy vịt hải ly. Sunset ~8:52pm</div>
+      <div class="stop-tags"><span class="tag t-eat">Ăn tối</span><span class="tag t-kid">Vịt & hải ly!</span><span class="tag t-sun">Sunset ~8:52pm</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Canmore+Downtown+Hostel/Policeman+Creek+Boardwalk+Canmore+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">20:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#6B3FBF"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Về hostel — ngủ sớm</div>
+      <div class="stop-note">Ngày mai xuất phát 07:00 — ngày Parkway dài nhất!</div>
+    </div>
+  </div>
+
+  <div class="info i-gas"><strong>⛽ Xăng ngày 1</strong>Không cần đổ — đã đổ đầy Costco Calgary. Tổng ~130km, bình còn hơn 2/3.</div>
+  <div class="day-sum">
+    <div class="sum-item">⏱ <b>07:00–20:30</b></div>
+    <div class="sum-item">📍 <b>8 điểm</b></div>
+    <div class="sum-item">🚗 <b>~130km</b></div>
+    <div class="sum-item">💰 <b>K-Pass $15 · Ăn ~$40–50</b></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ NGÀY 2 ═══════════ -->
+<section id="d2" class="section">
+<div class="page">
+  <div class="day-header-card dhc-n2">
+    <div class="dhc-inner">
+      <div class="dhc-label">Ngày 2 · Thứ Năm 30/04</div>
+      <div class="dhc-title">Icefields Parkway</div>
+      <div class="dhc-sub">Canmore → Lake Louise → Peyto → Columbia Icefield → Athabasca → Jasper. Ngày đẹp nhất chuyến đi!</div>
+      <div class="dhc-pills">
+        <span class="dhc-pill">07:00 → 21:00</span>
+        <span class="dhc-pill">~290km</span>
+        <span class="dhc-pill">Out 11:00 · In 16:00</span>
+        <span class="dhc-pill">🛏 Tonquin Inn</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sbar">Sáng sớm — đổ xăng Canmore rồi lên đường</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">06:45</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Ăn sáng + checkout Canmore Downtown Hostel</div>
+      <div class="stop-note">Checkout trước 11:00. Chuẩn bị đồ ăn trưa mang theo</div>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">07:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#C47A1A"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">⛽ Đổ xăng — Co-Op hoặc Fas Gas, Canmore</div>
+      <div class="stop-note">Check GasBuddy chọn trạm rẻ nhất. Đổ đầy 50L — đủ đi thẳng đến Jasper (~290km, tiêu thụ ~21L, còn dư hơn nửa bình!)</div>
+      <div class="stop-tags"><span class="tag t-gas">Xăng #1 — đủ đến Jasper</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Canmore+Downtown+Hostel/Co-op+Gas+Bar+801+Bow+Valley+Trail+Canmore+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">07:20</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A6FDB"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Rời Canmore → Hwy 1 West → Lake Louise</div>
+      <div class="stop-note">~55km, ~45 phút. Thẳng vào hồ — không dừng Village đổ xăng</div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Canmore+AB/Lake+Louise+Lakeshore+Alberta" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Sáng — Lake Louise + Parkway đầu</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">08:10</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Lake Louise Lakeshore</div>
+      <div class="stop-note">Đỗ MIỄN PHÍ (trước 15/5). Paved ~1km stroller OK. Nước xanh ngọc + núi Victoria — đẹp nhất sáng sớm. ~45 phút</div>
+      <div class="stop-tags"><span class="tag t-photo">Must stop!</span><span class="tag t-nat">Stroller OK</span><span class="tag t-free">Đỗ xe miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Canmore+AB/Lake+Louise+Lakeshore+Alberta" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">09:05</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">📸 Peyto Lake — Bow Summit</div>
+      <div class="stop-note">Rẽ Hwy 93N, ~35km. Hồ xanh ngọc nổi tiếng nhất Canada. Trail ~500m dốc nhẹ 15 phút. Địu bé đoạn cuối. Đến sớm tránh đông</div>
+      <div class="stop-tags"><span class="tag t-photo">Iconic shot!</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Lake+Louise+Lakeshore/Peyto+Lake+Viewpoint+Alberta" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">09:55</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Bow Lake → Waterfowl Lakes → Mistaya Canyon</div>
+      <div class="stop-note">3 điểm liên tiếp. Bow & Waterfowl: 10 phút chụp từ bãi đỗ. Mistaya: đi bộ 10 phút xuống hẻm đá ấn tượng</div>
+      <div class="stop-tags"><span class="tag t-photo">Chụp ảnh</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Peyto+Lake+Viewpoint/Bow+Lake+Alberta/Waterfowl+Lakes+Alberta/Mistaya+Canyon+Alberta" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Trưa — nghỉ giữa Parkway</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">11:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Saskatchewan River Crossing — trưa + bé ngủ</div>
+      <div class="stop-note">Ăn đồ mang theo. Nhà vệ sinh. Bé ngủ ~45 phút trong xe</div>
+      <div class="stop-tags"><span class="tag t-eat">Picnic trong xe</span><span class="tag t-warn">Xăng ở đây ~$2.50/L — bỏ qua</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Mistaya+Canyon+Alberta/Saskatchewan+River+Crossing+Alberta" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Chiều — nửa sau Parkway (đẹp nhất!)</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">12:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">📸 Weeping Wall</div>
+      <div class="stop-note">Dừng 10 phút. Vách đá Cirrus Mountain với nước "khóc" xuống</div>
+      <div class="stop-tags"><span class="tag t-photo">Chụp ảnh nhanh</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Saskatchewan+River+Crossing/Weeping+Wall+Icefields+Parkway+Alberta" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">12:50</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Columbia Icefield</div>
+      <div class="stop-note">Đi bộ paved ~15 phút đến chân sông băng, stroller OK. Không cần mua tour đắt. Xem markers ghi sông băng rút 100 năm. ~1 giờ</div>
+      <div class="stop-tags"><span class="tag t-photo">Must stop!</span><span class="tag t-nat">Stroller OK</span><span class="tag t-kid">Bé thích tuyết!</span><span class="tag t-free">Không cần tour</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Weeping+Wall+Icefields+Parkway/Columbia+Icefield+Visitor+Centre+Alberta" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">14:05</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Sunwapta Falls</div>
+      <div class="stop-note">Platform paved stroller OK. Tiếng thác ầm ầm — bé thích! ~15 phút</div>
+      <div class="stop-tags"><span class="tag t-kid">Bé thích!</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Columbia+Icefield+Visitor+Centre/Sunwapta+Falls+Alberta" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">14:35</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">📸 Athabasca Falls</div>
+      <div class="stop-note">Đẹp nhất toàn Parkway! Viewing platform paved, nhiều góc chụp, stroller OK. ~25 phút</div>
+      <div class="stop-tags"><span class="tag t-photo">Best of Parkway!</span><span class="tag t-nat">Stroller OK</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Sunwapta+Falls+Alberta/Athabasca+Falls+Alberta" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Chiều tối — đến Jasper</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">15:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Đến Jasper town — dạo phố chờ check-in 16:00</div>
+      <div class="stop-note">Jasper Ave, fudge, kem cho bé</div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Athabasca+Falls+Alberta/Jasper+Avenue+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">16:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#6B3FBF"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">✅ Check-in Tonquin Inn Jasper</div>
+      <div class="stop-note">Check-in từ 16:00 · Checkout 11:00</div>
+      <div class="stop-tags"><span class="tag t-slp">Nghỉ đêm 2 & 3</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Jasper+Avenue+Jasper/Tonquin+Inn+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">17:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🍽️ Ăn tối + đổ xăng tối nay</div>
+      <div class="stop-note">Ăn Jasper Brewing Co. hoặc tự nấu. Đổ xăng Petro-Canada 300 Connaught Dr (rẻ hơn Shell ~10¢/L) — đổ tối nay để sáng ngày 3 xuất phát thẳng</div>
+      <div class="stop-tags"><span class="tag t-eat">Ăn tối</span><span class="tag t-gas">Xăng #2 — đổ tối nay</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Tonquin+Inn+Jasper/Petro-Canada+300+Connaught+Dr+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">21:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#6B3FBF"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Về Tonquin Inn — ngủ sớm</div>
+      <div class="stop-note">Ngày dài nhất chuyến đi!</div>
+    </div>
+  </div>
+
+  <div class="info i-warn">⚠ Saskatchewan River Crossing: xăng ~$2.50/L — bỏ qua, bình Canmore còn đầy.</div>
+  <div class="day-sum">
+    <div class="sum-item">⏱ <b>07:00–21:00</b></div>
+    <div class="sum-item">📍 <b>9 điểm</b></div>
+    <div class="sum-item">🚗 <b>~290km</b></div>
+    <div class="sum-item">💰 <b>Xăng ~$82–87 · Ăn ~$30–50</b></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ NGÀY 3 ═══════════ -->
+<section id="d3" class="section">
+<div class="page">
+  <div class="day-header-card dhc-n3">
+    <div class="dhc-inner">
+      <div class="dhc-label">Ngày 3 · Thứ Sáu 01/05</div>
+      <div class="dhc-title">Jasper → Hinton</div>
+      <div class="dhc-sub">Maligne Canyon → Maligne Lake → Pyramid → Lac Beauvert → Annette Lake → Pocahontas → Hinton. Lộ trình một chiều tối ưu!</div>
+      <div class="dhc-pills">
+        <span class="dhc-pill">08:00 → 20:30</span>
+        <span class="dhc-pill">~200km</span>
+        <span class="dhc-pill">Out 11:00 · In 16:00</span>
+        <span class="dhc-pill">🛏 Timberland Hinton</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sbar">Sáng — checkout + Maligne Road</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">08:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A6FDB"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Checkout Tonquin Inn Jasper</div>
+      <div class="stop-note">Checkout trước 11:00. Xếp toàn bộ đồ vào xe — không cần quay lại. Ăn sáng nhanh rồi xuất phát thẳng ra Maligne Road</div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Tonquin+Inn+Jasper/Maligne+Canyon+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">08:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Maligne Canyon — bridge 1 & 2</div>
+      <div class="stop-note">Đến sớm — gần như không ai! Hẻm núi đá ngoạn mục, nước xanh qua vách đá. Stroller OK đến bridge 2. ~1 giờ. Lái thẳng lên Maligne Lake — không quay về Jasper, tiết kiệm 40 phút!</div>
+      <div class="stop-tags"><span class="tag t-nat">Hẻm núi đá</span><span class="tag t-photo">Chụp ảnh</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Tonquin+Inn+Jasper/Maligne+Canyon+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">10:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">📸 Medicine Lake — dừng nhanh trên đường</div>
+      <div class="stop-note">Hồ không có đường thoát nước — cảnh hoang sơ độc đáo cuối tháng 4. Dừng 10 phút ven đường</div>
+      <div class="stop-tags"><span class="tag t-photo">Cảnh hoang sơ</span></div>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">10:15</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Maligne Lake — ven hồ + picnic trưa</div>
+      <div class="stop-note">Hồ dài nhất Canadian Rockies, màu xanh ngọc. Đi bộ ven hồ ~1km paved, stroller OK. Nhìn Spirit Island từ xa — không cần đi thuyền. Ăn trưa picnic tại bàn ven hồ. ~1.5 giờ</div>
+      <div class="stop-tags"><span class="tag t-photo">Hồ dài nhất Rockies!</span><span class="tag t-nat">Stroller OK</span><span class="tag t-eat">Picnic trưa</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Medicine+Lake+Jasper/Maligne+Lake+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Trưa — bé ngủ xe trên đường về</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">11:45</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Lái về Jasper — bé ngủ trưa trong xe</div>
+      <div class="stop-note">~48km, ~50 phút. Bé ngủ thoải mái</div>
+      <div class="stop-tags"><span class="tag t-eat">Nap time bé</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Maligne+Lake+Jasper/Pyramid+Lake+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Chiều — Pyramid, Patricia + rời Jasper Hwy 16 East</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">13:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Pyramid Lake + Pyramid Island</div>
+      <div class="stop-note">~7km từ Jasper phía tây bắc. Cầu nhỏ ra đảo — bé rất thích! Paved ven hồ, stroller OK. ~1 giờ rồi ra Hwy 16</div>
+      <div class="stop-tags"><span class="tag t-kid">Bé mê cái cầu!</span><span class="tag t-photo">Chụp ảnh</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Jasper+AB/Pyramid+Lake+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">14:15</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Patricia Lake</div>
+      <div class="stop-note">Cạnh Pyramid, 2km. Bờ hồ thoải, bé chạy nhảy ném đá. Stroller OK. ~30 phút</div>
+      <div class="stop-tags"><span class="tag t-kid">Bé chạy nhảy!</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Pyramid+Lake+Jasper/Patricia+Lake+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">15:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Jasper town nhanh — kem + kỷ niệm</div>
+      <div class="stop-note">Dạo Jasper Ave 15–20 phút. Kem cho bé trước khi rời Jasper</div>
+      <div class="stop-tags"><span class="tag t-kid">Kem cho bé!</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Patricia+Lake+Jasper/Jasper+Avenue+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">15:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A6FDB"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Lái Hwy 16 East — các điểm tiếp theo đều đúng tuyến về Hinton</div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Jasper+Avenue+Jasper+AB/Lac+Beauvert+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">15:45</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🦌 Lac Beauvert — đúng tuyến Hwy 16</div>
+      <div class="stop-note">Hồ xanh ngọc cạnh Fairmont Jasper Lodge, rẽ vào 5 phút. Đường ven hồ paved, stroller OK. Chiều tối elk hay ra uống nước. ~30 phút</div>
+      <div class="stop-tags"><span class="tag t-nat">Đúng tuyến đường</span><span class="tag t-kid">Thấy elk!</span><span class="tag t-free">Miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Jasper+Avenue+Jasper/Lac+Beauvert+Jasper+Park+Lodge+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">16:20</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">📸 Annette Lake — rẽ vào 2 phút đúng tuyến</div>
+      <div class="stop-note">Ngay cạnh Hwy 16 phía đông Jasper. Hồ ven núi đẹp, paved, stroller OK. Một trong những hồ ấm nhất Jasper. ~25 phút</div>
+      <div class="stop-tags"><span class="tag t-nat">Đúng tuyến Hwy 16</span><span class="tag t-free">Miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Lac+Beauvert+Jasper/Lake+Annette+Jasper+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">16:50</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Pocahontas Townsite</div>
+      <div class="stop-note">Ngay đầu Miette Road trên Hwy 16 — tàn tích thị trấn mỏ than đầu 1900s. Trail diễn giải lịch sử ~15 phút, miễn phí, đúng tuyến</div>
+      <div class="stop-tags"><span class="tag t-nat">Lịch sử độc đáo</span><span class="tag t-free">Miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Lake+Annette+Jasper/Pocahontas+Townsite+Jasper+National+Park+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Chiều tối — Hinton</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">17:15</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#C47A1A"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">⛽ Đổ xăng + Check-in Timberland Hotel Hinton</div>
+      <div class="stop-note">Đổ xăng Husky/Esso Gregg Ave trước. Check-in Timberland Hotel từ 16:00 · Checkout 12:00 (ngày mai thoải mái!). Đổ xăng tối nay để sáng mai xuất phát thẳng</div>
+      <div class="stop-tags"><span class="tag t-gas">Xăng #3 — đổ tối nay</span><span class="tag t-slp">Nghỉ đêm 3</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Pocahontas+Townsite+Jasper/Timberland+Hotel+Hinton+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">18:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A7F4B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🦫 Beaver Boardwalk — dạo buổi tối</div>
+      <div class="stop-note">Đường boardwalk 3km qua đầm lầy — miễn phí, flat, stroller OK. Hay thấy hải ly, vịt, nai lúc chạng vạng. ~45 phút</div>
+      <div class="stop-tags"><span class="tag t-kid">Thấy hải ly!</span><span class="tag t-nat">Stroller OK</span><span class="tag t-free">Miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Timberland+Hotel+Hinton/Beaver+Boardwalk+Hinton+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">19:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🍽️ Ăn tối + nghỉ ngơi sớm</div>
+      <div class="stop-note">Nhà hàng địa phương hoặc Tim Hortons. Ngủ sớm — ngày mai checkout 12:00, xuất phát thoải mái</div>
+      <div class="stop-tags"><span class="tag t-eat">Ăn tối</span></div>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">21:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#6B3FBF"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Nghỉ ngơi tại Timberland Hotel</div>
+      <div class="stop-note">Ngày mai checkout tận 12:00 — ngủ no!</div>
+    </div>
+  </div>
+
+  <div class="info i-green"><strong>💡 Lộ trình tối ưu ngày 3</strong>Maligne Canyon → Maligne Lake đi thẳng (tiết kiệm 40 phút). Lac Beauvert + Annette Lake + Pocahontas đều nằm đúng tuyến Hwy 16 East — không lãng phí km nào trên đường về Hinton.</div>
+  <div class="day-sum">
+    <div class="sum-item">⏱ <b>08:00–21:00</b></div>
+    <div class="sum-item">📍 <b>10 điểm</b></div>
+    <div class="sum-item">🚗 <b>~200km</b></div>
+    <div class="sum-item">💰 <b>Ăn ~$20–35 · Timberland ~$80–110</b></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ NGÀY 4 ═══════════ -->
+<section id="d4" class="section">
+<div class="page">
+  <div class="day-header-card dhc-n4">
+    <div class="dhc-inner">
+      <div class="dhc-label">Ngày 4 · Thứ Bảy 02/05</div>
+      <div class="dhc-title">Hinton → Edmonton</div>
+      <div class="dhc-sub">Checkout 12:00 → Lái 3h → Trúc Lâm → Museum → Hustler Plaza hoa anh đào → West Edmonton Mall</div>
+      <div class="dhc-pills">
+        <span class="dhc-pill">09:30 → 21:00</span>
+        <span class="dhc-pill">~280km</span>
+        <span class="dhc-pill">Out 12:00 · In 15:30</span>
+        <span class="dhc-pill">🛏 Homestay 118 Ave NW</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sbar">Sáng — tận hưởng checkout muộn 12:00</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">09:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Ăn sáng tại Timberland Hotel</div>
+      <div class="stop-note">Checkout 12:00 — ngủ thêm, ăn sáng thoải mái. Xếp hành lý trước khi checkout</div>
+      <div class="stop-tags"><span class="tag t-eat">Sáng thoải mái</span></div>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">12:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A6FDB"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Checkout Timberland Hotel + rời Hinton</div>
+      <div class="stop-note">Lái Hwy 16 East về Edmonton ~280km, ~3 giờ. Bé ngủ trong xe</div>
+      <div class="stop-tags"><span class="tag t-eat">Bé ngủ trong xe</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Timberland+Hotel+Hinton/11328+97+St+NW+Edmonton+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Trưa — Tu Viện Trúc Lâm (Bát Quan Trai)</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">15:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#D4570E"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🙏 Đến Tu Viện Trúc Lâm Edmonton</div>
+      <div class="stop-note">11328 97 St NW · Tham dự khóa tu Bát Quan Trai · Ăn trưa chay miễn phí tại chùa</div>
+      <div class="stop-tags"><span class="tag t-pray">Bát Quan Trai</span><span class="tag t-free">Trai chay miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Timberland+Hotel+Hinton/11328+97+St+NW+Edmonton+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">15–?h</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#D4570E"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🙏 Khóa tu — Công phu · Nghe pháp · Thiền · Sám hối</div>
+      <div class="stop-note">Tuỳ chương trình chùa sắp xếp. Gọi xác nhận giờ kết thúc trước</div>
+      <div class="stop-tags"><span class="tag t-pray">Thọ Bát Quan Trai</span></div>
+    </div>
+  </div>
+
+  <div class="sbar">Chiều — check-in Homestay + Museum + Hoa anh đào</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">15:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#6B3FBF"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">✅ Check-in Homestay 118 Ave NW Edmonton</div>
+      <div class="stop-note">Check-in từ 15:30 · Checkout 10:30 · Nhờ host giữ hành lý trước nếu đến sớm hơn</div>
+      <div class="stop-tags"><span class="tag t-slp">Nghỉ đêm 4</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/11328+97+St+NW+Edmonton/118+Ave+NW+Edmonton+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">16:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Royal Alberta Museum</div>
+      <div class="stop-note">9810 103a Ave NW · Mở T7 đến 17:00 — còn ~1 giờ · Khủng long + côn trùng sống = bé mê! ~$19/người lớn, trẻ &lt;6 miễn phí. Stroller OK</div>
+      <div class="stop-tags"><span class="tag t-kid">Khủng long!</span><span class="tag t-free">Bé &lt;6t miễn phí</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/118+Ave+NW+Edmonton/Royal+Alberta+Museum+9810+103a+Ave+NW+Edmonton" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">17:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#C4346B"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🌸 George F Hustler Plaza — hoa anh đào</div>
+      <div class="stop-note">9815 95 St NW · 5 phút từ Museum · Đúng đỉnh nở rộ cuối tháng 4! Paved, stroller OK. Chụp ảnh gia đình dưới tán hoa. ~45 phút</div>
+      <div class="stop-tags"><span class="tag t-flwr">Hoa anh đào đỉnh!</span><span class="tag t-photo">Ảnh đẹp nhất chuyến</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Royal+Alberta+Museum+Edmonton/George+F+Hustler+Memorial+Plaza+9815+95+St+NW+Edmonton" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="sbar">Tối — West Edmonton Mall</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">18:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A8A8A"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">West Edmonton Mall — ăn tối + Galaxyland</div>
+      <div class="stop-note">8882 170 St NW · ~20 phút từ Hustler Plaza · Ăn tối food court (~$10–15/người) · Galaxyland: tàu lượn nhỏ, xe đụng, vòng quay bé 4 tuổi (~$15–25/bé) · Mở đến 21:00 T7</div>
+      <div class="stop-tags"><span class="tag t-eat">Ăn tối food court</span><span class="tag t-kid">Bé mê nhất ngày!</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/George+F+Hustler+Memorial+Plaza+Edmonton/West+Edmonton+Mall+8882+170+St+NW+Edmonton" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">20:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#6B3FBF"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Về Homestay — nghỉ ngơi</div>
+      <div class="stop-note">Checkout 10:30 sáng mai</div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/West+Edmonton+Mall/118+Ave+NW+Edmonton+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="info i-pray"><strong>⚠ Confirm khóa tu:</strong> Gọi (780) 471-1093 · tvtruclam97@gmail.com — xác nhận giờ bắt đầu + kết thúc ngày 02/05 để canh giờ Museum + WEM cho khớp.</div>
+  <div class="info i-tip"><strong>💡 Lợi thế checkout Timberland 12:00</strong>Ngủ thêm được ~2 tiếng so với checkout 11:00 thông thường. Ăn sáng thong thả, xuất phát ~12:00, đến Edmonton ~15:00 — vẫn kịp mọi lịch buổi chiều.</div>
+  <div class="day-sum">
+    <div class="sum-item">⏱ <b>12:00–21:00</b></div>
+    <div class="sum-item">📍 <b>6 điểm</b></div>
+    <div class="sum-item">🚗 <b>~280km + nội ô</b></div>
+    <div class="sum-item">💰 <b>Museum ~$38 · WEM ~$40–60</b></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ NGÀY 5 ═══════════ -->
+<section id="d5" class="section">
+<div class="page">
+  <div class="day-header-card dhc-n5">
+    <div class="dhc-inner">
+      <div class="dhc-label">Ngày 5 · Chủ Nhật 03/05</div>
+      <div class="dhc-title">Về nhà</div>
+      <div class="dhc-sub">Costco (xăng) → Trúc Lâm 9:30 → Lễ 10:00 → Trưa chay → CrossIron Mills → Calgary trước 16:00</div>
+      <div class="dhc-pills">
+        <span class="dhc-pill">08:30 → 15:50</span>
+        <span class="dhc-pill">~310km</span>
+        <span class="dhc-pill">Out 10:30</span>
+        <span class="dhc-pill">🏠 Về nhà 16:00 ✓</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sbar">Sáng — đổ xăng + Tu Viện Trúc Lâm</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">08:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#8A8780"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Checkout Homestay 118 Ave NW</div>
+      <div class="stop-note">Checkout trước 10:30. Lấy hành lý, để đồ trong xe</div>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">08:40</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#C47A1A"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">⛽ Đổ xăng — Costco South Edmonton</div>
+      <div class="stop-note">1899 Parsons Rd SW · Ngay trên đường ra Hwy QE2 về Calgary · Rẻ nhất Edmonton</div>
+      <div class="stop-tags"><span class="tag t-gas">Xăng #4 — Costco giá tốt nhất</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/118+Ave+NW+Edmonton/Costco+Wholesale+1899+Parsons+Rd+SW+Edmonton+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">09:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#D4570E"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🙏 Có mặt tại Tu Viện Trúc Lâm</div>
+      <div class="stop-note">11328 97 St NW · Đến sớm 30 phút trước khi bắt đầu lễ</div>
+      <div class="stop-tags"><span class="tag t-pray">Chuẩn bị lễ</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Costco+Wholesale+1899+Parsons+Rd+SW+Edmonton/11328+97+St+NW+Edmonton+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">10:00</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#D4570E"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🙏 Lễ sáng Chủ Nhật + ăn trưa chay miễn phí</div>
+      <div class="stop-note">Lễ + ăn trưa chay miễn phí sau lễ · Mang bé vào được · Rời chùa ~12:00–12:30</div>
+      <div class="stop-tags"><span class="tag t-pray">Lễ sáng CN</span><span class="tag t-free">Trưa chay $0</span></div>
+    </div>
+  </div>
+
+  <div class="sbar">Chiều — về Calgary</div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">12:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A6FDB"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">Rời Edmonton — Hwy QE2 South về Calgary</div>
+      <div class="stop-note">~3 giờ lái. Bé ngủ trong xe</div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/11328+97+St+NW+Edmonton/CrossIron+Mills+261055+Crossiron+Blvd+Rocky+View+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">14:30</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A8A8A"></div><div class="stop-line"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">CrossIron Mills — 45 phút</div>
+      <div class="stop-note">261055 Crossiron Blvd · Mở CN 11:00–18:00 · Bass Pro Shops (bể cá khổng lồ bé mê!), outlet</div>
+      <div class="stop-tags"><span class="tag t-shop">Mua sắm</span><span class="tag t-kid">Bể cá Bass Pro!</span></div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/11328+97+St+NW+Edmonton/CrossIron+Mills+261055+Crossiron+Blvd+Rocky+View+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+  <div class="stop">
+    <div class="stop-tc"><div class="stop-time">15:50</div></div>
+    <div class="stop-mc"><div class="stop-dot" style="background:#1A6FDB"></div></div>
+    <div class="stop-body">
+      <div class="stop-name">🏠 Về nhà — 110 Springborough SW, Calgary!</div>
+      <div class="stop-note">Trước 16:00 ✅ Kết thúc hành trình 5 ngày tuyệt vời!</div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/CrossIron+Mills+Rocky+View+AB/110+Springborough+Blvd+SW+Calgary+AB" target="_blank">📍 Dẫn đường</a>
+    </div>
+  </div>
+
+  <div class="day-sum">
+    <div class="sum-item">⏱ <b>08:30–15:50</b></div>
+    <div class="sum-item">📍 <b>5 điểm</b></div>
+    <div class="sum-item">🚗 <b>~310km</b></div>
+    <div class="sum-item">💰 <b>Xăng ~$40–50 · Trưa chay $0</b></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ XĂNG ═══════════ -->
+<section id="gas" class="section">
+<div class="page">
+  <div class="page-eyebrow">Kế hoạch</div>
+  <div class="page-title">⛽ Chiến lược xăng</div>
+
+  <div class="info i-tip" style="margin-bottom:20px"><strong>Toyota Corolla 2015 — bình 50L · ~7L/100km</strong>Tổng ~1,250km · Tiêu thụ ~88L · Luôn còn dư 30–40% mỗi lần đổ. Không bao giờ cần dừng khẩn cấp giữa đường.</div>
+
+  <div class="gas-card">
+    <div class="gas-row">
+      <div class="gas-num" style="color:var(--gray200)">0</div>
+      <div class="gas-body">
+        <div class="gas-name">Costco Calgary — trước ngày khởi hành</div>
+        <div class="gas-note">Đổ đầy trước 29/04. Rẻ nhất toàn chuyến (~$1.50–1.55/L). Đủ chạy hết ngày 1 Calgary → Canmore ~130km</div>
+        <span class="gas-badge">Trước khi đi · ~$75–78</span>
+      </div>
+    </div>
+    <div class="gas-row">
+      <div class="gas-num" style="color:var(--amber)">1</div>
+      <div class="gas-body">
+        <div class="gas-name">Co-Op hoặc Fas Gas — Canmore (07:00 ngày 30/04)</div>
+        <div class="gas-note">Check GasBuddy sáng hôm đó. Đổ đầy 50L — đủ đi thẳng Canmore → Jasper 290km (tiêu thụ ~21L, còn dư hơn nửa bình khi đến Jasper!)</div>
+        <span class="gas-badge">Xăng #1 · ~$82–87</span>
+      </div>
+    </div>
+    <div class="gas-row">
+      <div class="gas-num" style="color:var(--amber)">2</div>
+      <div class="gas-body">
+        <div class="gas-name">Petro-Canada 300 Connaught Dr — Jasper (tối 30/04)</div>
+        <div class="gas-note">Đổ tối ngày 2 sau ăn tối. Rẻ hơn Shell trong town ~10¢/L. Đủ cho ngày 3 loanh quanh Jasper ~200km về Hinton</div>
+        <span class="gas-badge">Xăng #2 · ~$35–45</span>
+      </div>
+    </div>
+    <div class="gas-row">
+      <div class="gas-num" style="color:var(--amber)">3</div>
+      <div class="gas-body">
+        <div class="gas-name">Husky hoặc Esso Gregg Ave — Hinton (tối 01/05)</div>
+        <div class="gas-note">Đổ ngay khi đến Hinton, trước check-in. Rẻ hơn Jasper ~10¢/L. Đủ cho ngày 4 Hinton → Edmonton 280km</div>
+        <span class="gas-badge">Xăng #3 · ~$35–45</span>
+      </div>
+    </div>
+    <div class="gas-row">
+      <div class="gas-num" style="color:var(--amber)">4</div>
+      <div class="gas-body">
+        <div class="gas-name">Costco South Edmonton — 1899 Parsons Rd SW (08:40 ngày 03/05)</div>
+        <div class="gas-note">Ngay trên đường ra Hwy QE2 về Calgary. Rẻ nhất Edmonton. Đủ Edmonton → Calgary 310km về đến nhà</div>
+        <span class="gas-badge">Xăng #4 · ~$40–50</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info i-warn"><strong>⚠ Saskatchewan River Crossing — TRÁNH đổ xăng</strong>Trạm xăng duy nhất giữa Icefields Parkway với giá ~$2.50/L — gần gấp đôi bình thường. Bình Canmore đổ đầy sáng 30/04 đủ đến Jasper, không cần ghé đây.</div>
+  <div class="info i-tip"><strong>💡 Cài GasBuddy app</strong>Check giá xăng thời gian thực tại Canmore sáng 30/04 để chọn trạm rẻ nhất trước khi đổ.</div>
+</div>
+</section>
+
+<!-- ═══════════ CHECKLIST ═══════════ -->
+<section id="checklist" class="section">
+<div class="page">
+  <div class="page-eyebrow">Chuẩn bị</div>
+  <div class="page-title">Checklist</div>
+
+  <div class="check-group">
+    <div class="check-group-title">📋 Đặt phòng</div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Canmore Downtown Hostel — 1 đêm 29/04</div><div class="check-sub">Check-in 16:00 · Checkout 11:00</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Tonquin Inn Jasper — 2 đêm 30/04–02/05</div><div class="check-sub">Check-in 16:00 · Checkout 11:00</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Timberland Hotel Hinton — 1 đêm 01/05</div><div class="check-sub">Check-in 16:00 · Checkout 12:00 (trưa!)</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Homestay 118 Ave NW Edmonton — 1 đêm 02/05</div><div class="check-sub">Check-in 15:30 · Checkout 10:30</div></div></div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-title">🎫 Mua passes</div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Parks Canada Discovery Pass — gia đình</div><div class="check-sub">parks.canada.ca · ~$145/năm hoặc $20/ngày</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Kananaskis Conservation Pass — $15/ngày</div><div class="check-sub">albertaparks.ca · Đăng ký biển số xe trước</div></div></div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-title">📞 Gọi xác nhận</div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Tu Viện Trúc Lâm — xác nhận lịch bát quan trai 02/05</div><div class="check-sub">(780) 471-1093 · tvtruclam97@gmail.com</div></div></div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-title">📱 App + bản đồ offline</div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Tải offline Google Maps toàn tuyến</div><div class="check-sub">Không có sóng trên Icefields Parkway + Maligne Lake Road!</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Cài GasBuddy app</div><div class="check-sub">Check giá xăng Canmore sáng 30/04 trước khi đổ</div></div></div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-title">⛽ Xăng</div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Đổ đầy xăng Costco Calgary trước ngày 29/04</div></div></div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-title">🎒 Đồ cần mang</div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Carrier / địu bé</div><div class="check-sub">Maligne Canyon + trail dốc không đẩy stroller được</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Stroller bánh lớn (all-terrain)</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Áo khoác chống gió/nước + fleece mid-layer</div><div class="check-sub">Cuối tháng 4: ban ngày ~7°C, tối ~2°C ở Jasper/Hinton</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Mũ len + găng tay cho bé</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Snack nhiều — granola bar, trái cây, bánh quy</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Bình nước có ống hút · Kem chống nắng SPF 50+</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Thuốc hạ sốt + băng cá nhân + thuốc thông thường</div></div></div>
+    <div class="check-item" onclick="tc(this)"><div class="check-box"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="check-text">Đồ ăn chuẩn bị sẵn cho 5 ngày</div><div class="check-sub">Tiết kiệm đáng kể so với ăn ngoài mỗi bữa</div></div></div>
+  </div>
+</div>
+</section>
+
+<footer>Alberta Road Trip · 29/04–03/05/2026 · Calgary → Banff → Jasper → Hinton → Edmonton → Calgary</footer>
+
+<script>
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const ids=['overview','d1','d2','d3','d4','d5','gas','checklist'];
+  document.querySelectorAll('.nav-btn')[ids.indexOf(id)].classList.add('active');
+  window.scrollTo({top:document.querySelector('.nav').offsetTop,behavior:'smooth'});
+}
+function tc(el){
+  el.classList.toggle('done');
+  try{
+    const k=el.querySelector('.check-text').textContent;
+    const s=JSON.parse(localStorage.getItem('ck')||'{}');
+    s[k]=el.classList.contains('done');
+    localStorage.setItem('ck',JSON.stringify(s));
+  }catch(e){}
+}
+window.onload=function(){
+  try{
+    const s=JSON.parse(localStorage.getItem('ck')||'{}');
+    document.querySelectorAll('.check-item').forEach(el=>{
+      const k=el.querySelector('.check-text')?.textContent;
+      if(k&&s[k])el.classList.add('done');
+    });
+  }catch(e){}
+};
+</script>
+</body>
+</html>
